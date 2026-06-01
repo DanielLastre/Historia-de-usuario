@@ -1,9 +1,6 @@
 import "./styles/global.css";
-import { renderLogin } from "./views/auth/login";
-import { renderRegister } from "./views/auth/register";
-import { renderHome } from "./views/users/home";
+import { initRouter } from "./router/router.js";
 
-const app = document.getElementById("app");
+initRouter();
 
-app.innerHTML = renderHome();
-app.innerHTML = renderRegister();
+
