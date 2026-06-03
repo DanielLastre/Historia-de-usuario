@@ -1,5 +1,5 @@
 export function renderRegister() {
-    return `
+  return `
 <main class="grid min-h-screen lg:grid-cols-[0.95fr_1.05fr]">
   <section class="hidden border-r border-blue-100 bg-blue-600 p-10 text-white lg:flex lg:flex-col lg:justify-between">
     <a class="text-xl font-black tracking-tight" href="/src/views/home.html">TaskFlowSPA</a>
@@ -25,7 +25,7 @@ export function renderRegister() {
           href="/src/views/login.html">Ya tengo cuenta</a>
       </div>
 
-      <form class="mt-8 grid gap-5">
+      <form id ="register-form" class="mt-8 grid gap-5">
         <div class="grid gap-5 md:grid-cols-2">
           <div>
             <label class="mb-2 block text-sm font-medium text-slate-700" for="register-name">Nombre</label>
@@ -71,5 +71,30 @@ export function renderRegister() {
 </main>
 
     `
-    
+
 }
+
+export function setupRegister() {
+
+  const form = document.getElementById('register-form');
+  const Nombre = document.getElementById('register-name');
+  const apellido = document.getElementById('register-lastname');
+  const email = document.getElementById('register-email');
+  const password = document.getElementById('register-password');
+  const role = document.getElementById('register-role');
+
+  form.addEventListener('submit',(event) => {
+    event.preventDefault();
+
+    const newUser = {
+
+      name: Nombre.value,
+      lastname: apellido.value,
+      email: email.value,
+      password: password.value,
+      role: [role.value]
+    };
+  });
+};
+
+
