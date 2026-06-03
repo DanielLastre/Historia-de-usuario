@@ -1,4 +1,66 @@
 {
-    "user":[],
-    "tasks":[]
+  "user": [
+    {
+      "name": "",
+      "lastname": "",
+      "email": "",
+      "password": "",
+      "role": [
+        "USER"
+      ],
+      "id": "T0sxdTs7Lo8"
+    },
+    {
+      "name": "",
+      "lastname": "",
+      "email": "",
+      "password": "",
+      "role": [
+        "USER"
+      ],
+      "id": "_VH1yEr6Nk0"
+    },
+    {
+      "name": "",
+      "lastname": "",
+      "email": "",
+      "password": "",
+      "role": [
+        "USER"
+      ],
+      "id": "LaYEwpsP2Rs"
+    },
+    {
+      "name": "Jhair",
+      "lastname": "arrieta",
+      "email": "daniellastre02@gmail.com",
+      "password": "ggggggg",
+      "role": [
+        "ADMIN"
+      ],
+      "id": "3qCu4d-2p48"
+    },
+    {
+      "name": "",
+      "lastname": "",
+      "email": "",
+      "password": "",
+      "role": [
+        "USER"
+      ],
+      "id": "jnLLvrLD_ec"
+    },
+    {
+      "name": "hs",
+      "lastname": "r",
+      "email": "daniellastre02@gmail.com",
+      "password": "lastre0",
+      "role": [
+        "USER"
+      ],
+      "id": "6KPnrbYerXo"
+    }
+  ],
+  "tasks": [],
+  "$schema": "./node_modules/json-server/schema.json"
 }

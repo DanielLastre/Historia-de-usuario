@@ -1,8 +1,10 @@
+import { crearUsuario } from "../../services/users.service";
+
 export function renderRegister() {
   return `
 <main class="grid min-h-screen lg:grid-cols-[0.95fr_1.05fr]">
   <section class="hidden border-r border-blue-100 bg-blue-600 p-10 text-white lg:flex lg:flex-col lg:justify-between">
-    <a class="text-xl font-black tracking-tight" href="/src/views/home.html">TaskFlowSPA</a>
+    <a class="text-xl font-black tracking-tight" href="/">TaskFlowSPA</a>
     <div>
       <p class="text-sm font-semibold uppercase tracking-[0.3em] text-blue-100">Nuevo usuario</p>
       <h1 class="mt-4 text-5xl font-black tracking-tight">Crea tu cuenta y empieza a organizar tu flujo.</h1>
@@ -22,7 +24,7 @@ export function renderRegister() {
           <h2 class="mt-2 text-3xl font-black text-slate-900">Crear cuenta</h2>
         </div>
         <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50"
-          href="/src/views/login.html">Ya tengo cuenta</a>
+          href="/login">Ya tengo cuenta</a>
       </div>
 
       <form id ="register-form" class="mt-8 grid gap-5">
@@ -61,10 +63,10 @@ export function renderRegister() {
           </div>
         </div>
 
-        <a class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-500"
-          href="/src/views/login.html">
+        <button type="submit"
+          class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-500">
           Registrarme
-        </a>
+        </button>
       </form>
     </div>
   </section>
@@ -74,7 +76,7 @@ export function renderRegister() {
 
 }
 
-export function setupRegister() {
+export function setupRegister(navigate) {
 
   const form = document.getElementById('register-form');
   const Nombre = document.getElementById('register-name');
@@ -83,17 +85,29 @@ export function setupRegister() {
   const password = document.getElementById('register-password');
   const role = document.getElementById('register-role');
 
-  form.addEventListener('submit',(event) => {
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
+
+    if (!Nombre.value.trim() || !apellido.value.trim() || !email.value.trim() || !password.value.trim()) {
+      alert('Todos los campos son obligatorios');
+      return;
+    }
 
     const newUser = {
 
-      name: Nombre.value,
-      lastname: apellido.value,
-      email: email.value,
+      name: Nombre.value.trim(),
+      lastname: apellido.value.trim(),
+      email: email.value.trim(),
       password: password.value,
       role: [role.value]
     };
+    try {
+      await crearUsuario(newUser);
+      alert('Usuario creado exitosamente');
+      navigate('/login');
+    } catch (error) {
+      alert(error.message);
+    }
   });
 };
 
