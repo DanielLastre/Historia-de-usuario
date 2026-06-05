@@ -59,6 +59,16 @@
         "USER"
       ],
       "id": "6KPnrbYerXo"
+    },
+    {
+      "name": "fff",
+      "lastname": "fff",
+      "email": "admin@company.com",
+      "password": "admin123",
+      "role": [
+        "USER"
+      ],
+      "id": "uOfo0xX-Smo"
     }
   ],
   "tasks": [],
